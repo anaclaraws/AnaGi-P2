@@ -15,3 +15,13 @@ def guardar_dado(dados_rolados, dados_guardados, numero_dado):
         return [novos_dados_rolados, novos_dados_guardados]
     else:
         return [dados_rolados, dados_guardados]
+
+def remover_dado(dados_rolados, dados_guardados, numero_removido):
+    if 0 <= numero_removido < len(dados_guardados):
+        dados_rolados.append(dados_guardados[numero_removido])
+        lista_guardados = []
+        for i in range(len(dados_guardados)):
+            if i != numero_removido:
+                lista_guardados.append(dados_guardados[i])
+        dados_guardados = lista_guardados
+    return [dados_rolados, dados_guardados]
