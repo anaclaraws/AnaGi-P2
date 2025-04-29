@@ -25,3 +25,10 @@ def remover_dado(dados_rolados, dados_guardados, numero_removido):
                 lista_guardados.append(dados_guardados[i])
         dados_guardados = lista_guardados
     return [dados_rolados, dados_guardados]
+
+def calcula_pontos_regra_simples (números):
+    dicio_somas = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+    for número in números:
+        if número in dicio_somas:
+            dicio_somas[número] += número
+    return dicio_somas
