@@ -8,7 +8,9 @@ def rolar_dados(n):
     return lista
 
 def guardar_dado (dados_rolados, dados_guardados, número_dado):
-    if 0 <= indice < len(dados_rolados):
-        dado = dados_rolados.pop(número_dado)
-        dados_no_estoque.append(dado)
-    return [dados_rolados, dados_no_estoque]
+    dado = dados_rolados[número_dado]
+        novos_dados_rolados = dados_rolados[:número_dado] + dados_rolados[número_dado+1:]
+        novos_dados_no_estoque = dados_no_estoque + [dado]
+        return [novos_dados_rolados, novos_dados_no_estoque]
+    else:
+        return [dados_rolados, dados_no_estoque]
