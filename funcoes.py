@@ -32,3 +32,9 @@ def calcula_pontos_regra_simples (números):
         if número in dicio_somas:
             dicio_somas[número] += número
     return dicio_somas
+
+def calcula_pontos_soma (lista_números):
+    soma=0
+    for números in lista_números:
+        soma+=números
+    return soma
