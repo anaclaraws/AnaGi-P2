@@ -77,4 +77,24 @@ def calcula_pontos_sequencia_alta(lista):
             return 30
     return 0
 
-
+def calcula_pontos_full_house(lista_faces):
+    if len(lista_faces) < 5:
+        return 0
+    numeros_unicos = []
+    quantidades = []
+    for numero in lista_faces:
+        if numero not in numeros_unicos:
+            numeros_unicos.append(numero)
+            quantidade = 0
+            for n in lista_faces:
+                if n == numero:
+                    quantidade += 1
+            quantidades.append(quantidade)
+    if (2 in quantidades) and (3 in quantidades) and (len(numeros_unicos) == 2):
+        soma = 0
+        for i in lista_faces:
+            soma += i
+        return soma
+    return 0
+            
+    
