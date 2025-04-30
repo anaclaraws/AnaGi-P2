@@ -110,7 +110,11 @@ def calcula_pontos_quadra(lista_faces):
                 if n == numero:
                     quantidade += 1
             quantidades.append(quantidade)
-    if 4 in quantidades or 5 in quantidades:
+    quadra = False
+    for q in quantidades:
+        if q >= 4:
+            quadra = True
+    if quadra:
         soma = 0
         for i in lista_faces:
             soma += i
