@@ -45,9 +45,12 @@ def calcula_pontos_soma (lista_números):
 def calcula_pontos_sequencia_baixa(lista_números):
     if len(lista_números) < 4:
         return 0
-    for i in range(len(lista_números) - 3):
-        if (lista_números[i] + 1 == lista_números[i + 1] and
-            lista_números[i + 1] + 1 == lista_números[i + 2] and
-            lista_números[i + 2] + 1 == lista_números[i + 3]):
+    numeros_unicos = []
+    for numeros in lista_números:
+        if numeros not in numeros_unicos:
+            numeros_unicos.append(numeros)
+    for i in range(len(numeros_unicos) - 3):
+        sequencia = [numeros_unicos[i], numeros_unicos[i] + 1, numeros_unicos[i] + 2, numeros_unicos[i] + 3]
+        if sequencia[0] in numeros_unicos and sequencia[1] in numeros_unicos and sequencia[2] in numeros_unicos and sequencia[3] in numeros_unicos:
             return 15
     return 0
