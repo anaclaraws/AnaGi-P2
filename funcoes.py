@@ -10,7 +10,10 @@ def rolar_dados(n):
 def guardar_dado(dados_rolados, dados_guardados, numero_dado):
     if 0 <= numero_dado < len(dados_rolados):
         dado = dados_rolados[numero_dado]
-        novos_dados_rolados = dados_rolados[:numero_dado] + dados_rolados[numero_dado+1:]
+        novos_dados_rolados = []
+        for i, valor in enumerate(dados_rolados):
+            if i != numero_dado:
+                novos_dados_rolados.append(valor)                
         novos_dados_guardados = dados_guardados + [dado]
         return [novos_dados_rolados, novos_dados_guardados]
     else:
@@ -38,3 +41,9 @@ def calcula_pontos_soma (lista_números):
     for números in lista_números:
         soma+=números
     return soma
+
+def calcula_pontos_sequencia_baixa(lista_números):
+    for i in range(1, len(lista_números)):
+        if lista_números[i] != lista_números[i - 1] + 1:
+            return 0
+    return 15
