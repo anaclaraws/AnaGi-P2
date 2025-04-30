@@ -51,6 +51,7 @@ def calcula_pontos_sequencia_baixa(lista_números):
             numeros_unicos.append(numeros)
     for i in range(len(numeros_unicos) - 3):
         sequencia = [numeros_unicos[i], numeros_unicos[i] + 1, numeros_unicos[i] + 2, numeros_unicos[i] + 3]
-        if sequencia[0] in numeros_unicos and sequencia[1] in numeros_unicos and sequencia[2] in numeros_unicos and sequencia[3] in numeros_unicos:
+        if sequencia[0] in lista_números and sequencia[1] in lista_números and sequencia[2] in lista_números and sequencia[3] in lista_números:
             return 15
     return 0
+
