@@ -10,10 +10,54 @@ def rolar_dados(n):
 def guardar_dado(dados_rolados, dados_guardados, numero_dado):
     if 0 <= numero_dado < len(dados_rolados):
         dado = dados_rolados[numero_dado]
-        novos_dados_rolados = dados_rolados[:numero_dado] + dados_rolados[numero_dado+1:]
+        novos_dados_rolados = []
+        for i, valor in enumerate(dados_rolados):
+            if i != numero_dado:
+                novos_dados_rolados.append(valor)                
         novos_dados_guardados = dados_guardados + [dado]
         return [novos_dados_rolados, novos_dados_guardados]
     else:
         return [dados_rolados, dados_guardados]
-    
-def remover_dado(dados_rolados, dados_guardados, dado_para_remover):
+
+def remover_dado(dados_rolados, dados_guardados, numero_removido):
+    if 0 <= numero_removido < len(dados_guardados):
+        dados_rolados.append(dados_guardados[numero_removido])
+        lista_guardados = []
+        for i in range(len(dados_guardados)):
+            if i != numero_removido:
+                lista_guardados.append(dados_guardados[i])
+        dados_guardados = lista_guardados
+    return [dados_rolados, dados_guardados]
+
+def calcula_pontos_regra_simples (números):
+    dicio_somas = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+    for número in números:
+        if número in dicio_somas:
+            dicio_somas[número] += número
+    return dicio_somas
+
+def calcula_pontos_soma (lista_números):
+    soma=0
+    for números in lista_números:
+        soma+=números
+    return soma
+
+def calcula_pontos_sequencia_baixa(lista_números):
+    if len(lista_números) < 4:
+        return 0
+    numeros_unicos = []
+    for numeros in lista_números:
+        if numeros not in numeros_unicos:
+            numeros_unicos.append(numeros)
+    for i in range(len(numeros_unicos)):
+        sequencia_encontrada = True
+        for j in range(1, 4):
+            if numeros_unicos[i] + j not in numeros_unicos:
+                sequencia_encontrada = False
+                break
+        if sequencia_encontrada:
+            return 15
+    return 0
+
+
+
