@@ -43,14 +43,11 @@ def calcula_pontos_soma (lista_números):
     return soma
 
 def calcula_pontos_sequencia_baixa(lista_números):
-    if len(lista_números) <= 1:
-        return 15
-    for numero in lista_números:
-        sequencia_valida = False
-        for i in range(len(lista_números)):
-            if lista_números[i] == numero + 1:
-                sequencia_valida = True
-                break
-        if not sequencia_valida:
-            return 0
-    return 15
+    if len(lista_números) < 4:
+        return 0
+    for i in range(len(lista_números) - 3):
+        if (lista_números[i] + 1 == lista_números[i + 1] and
+            lista_números[i + 1] + 1 == lista_números[i + 2] and
+            lista_números[i + 2] + 1 == lista_números[i + 3]):
+            return 15
+    return 0
