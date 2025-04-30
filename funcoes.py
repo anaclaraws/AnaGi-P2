@@ -60,4 +60,21 @@ def calcula_pontos_sequencia_baixa(lista_números):
     return 0
 
 
+def calcula_pontos_sequencia_alta(lista):
+    if len(lista) < 5:
+        return 0
+    numeros_unicos = []
+    for numero in lista:
+        if numero not in numeros_unicos:
+            numeros_unicos.append(numero)
+    for i in range(len(numeros_unicos)):
+        sequencia_encontrada = True
+        for j in range(1, 5):
+            if numeros_unicos[i] + j not in numeros_unicos:
+                sequencia_encontrada = False
+                break
+        if sequencia_encontrada:
+            return 30
+    return 0
+
 
