@@ -15,3 +15,5 @@ def guardar_dado(dados_rolados, dados_guardados, numero_dado):
         return [novos_dados_rolados, novos_dados_guardados]
     else:
         return [dados_rolados, dados_guardados]
+    
+def remover_dado(dados_rolados, dados_guardados, dado_para_remover):
