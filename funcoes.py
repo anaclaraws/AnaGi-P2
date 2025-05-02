@@ -123,3 +123,13 @@ def calcula_pontos_quina(lista_faces):
         if contagem[número] >=5:
             return 50
     return 0
+
+def calcula_pontos_regra_avancada (lista_faces):
+    return {
+        'cinco_iguais': calcula_pontos_quina(lista_faces),
+        'full_house': calcula_pontos_full_house(lista_faces),
+        'quadra': calcula_pontos_quadra(lista_faces),
+        'sem_combinacao': calcula_pontos_soma(lista_faces),
+        'sequencia_alta': calcula_pontos_sequencia_alta(lista_faces),
+        'sequencia_baixa': calcula_pontos_sequencia_baixa(lista_faces)
+    }
