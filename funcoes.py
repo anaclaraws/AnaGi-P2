@@ -98,27 +98,16 @@ def calcula_pontos_full_house(lista_faces):
     return 0
 
 def calcula_pontos_quadra(lista_faces):
-    if len(lista_faces) < 4:
-        return 0
-    numeros_unicos = []
-    quantidades = []
-    for numero in lista_faces:
-        if numero not in numeros_unicos:
-            numeros_unicos.append(numero)
-            quantidade = 0
-            for n in lista_faces:
-                if n == numero:
-                    quantidade += 1
-            quantidades.append(quantidade)
-    quadra = False
-    for q in quantidades:
-        if q >= 4:
-            quadra = True
-    if quadra:
-        soma = 0
-        for i in lista_faces:
-            soma += i
-        return soma
+    contagem={}
+    for número in lista_faces:
+        if número in contagem:
+            contagem[número] +=1
+        else:
+            contagem[número]= 1
+    for número in contagem:
+        if contagem[número] >= 4:
+            soma=0
+            for valor in lista_faces:
+                soma+=valor
+            return soma
     return 0
-            
-    
