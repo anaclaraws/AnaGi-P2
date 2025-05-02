@@ -111,3 +111,15 @@ def calcula_pontos_quadra(lista_faces):
                 soma+=valor
             return soma
     return 0
+
+def calcula_pontos_quina(lista_faces):
+    contagem={}
+    for número in lista_faces:
+        if número in contagem:
+            contagem[número] +=1
+        else:
+            contagem[número]= 1
+    for número in contagem:
+        if contagem[número] >=5:
+            return 50
+    return 0
