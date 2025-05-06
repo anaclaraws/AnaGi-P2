@@ -16,8 +16,8 @@ while rodada < 12:
     dados_guardados = []
     dados_rolados = rolar_dados(5)
     rerrolagens = 0
-    terminou_rodada = 0 
-    while terminou_rodada == 0:
+    terminou_rodada = False 
+    while not terminou_rodada: 
         print(f"Dados rolados: {dados_rolados}")
         print(f"Dados guardados: {dados_guardados}")
         print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para fazer jogada:")
@@ -37,7 +37,7 @@ while rodada < 12:
         elif opcao == '3':
             if rerrolagens < 2:
                 dados_rolados = rolar_dados(len(dados_rolados))
-                rerrolagens = rerrolagens + 1
+                rerrolagens += 1
             else:
                 print("Você já usou todas as rerrolagens.")
         elif opcao == '4':
@@ -51,31 +51,31 @@ while rodada < 12:
                 else:
                     todos_os_dados = dados_rolados + dados_guardados
                     cartela = faz_jogada(todos_os_dados, categoria, cartela)
-                    terminou_rodada = 1 
+                    terminou_rodada = True  # Alterado para True quando a jogada é feita
             elif categoria in cartela['regra_avancada']:
                 if cartela['regra_avancada'][categoria] != -1:
                     print("Essa combinação já foi utilizada.")
                 else:
                     todos_os_dados = dados_rolados + dados_guardados
                     cartela = faz_jogada(todos_os_dados, categoria, cartela)
-                    terminou_rodada = 1  
+                    terminou_rodada = True  # Alterado para True quando a jogada é feita
             else:
                 print("Combinação inválida. Tente novamente.")
         else:
             print("Opção inválida. Tente novamente.")
-    rodada = rodada + 1
+    rodada += 1
 pontos_simples = 0
 indice = 1
 while indice <= 6:
     valor = cartela['regra_simples'][indice]
     if valor != -1:
-        pontos_simples = pontos_simples + valor
-    indice = indice + 1
+        pontos_simples += valor
+    indice += 1
 pontos_avancada = 0
 for chave in cartela['regra_avancada']:
     valor = cartela['regra_avancada'][chave]
     if valor != -1:
-        pontos_avancada = pontos_avancada + valor
+        pontos_avancada += valor
 bonus = 0
 if pontos_simples >= 63:
     bonus = 35
