@@ -81,4 +81,4 @@ if pontos_simples >= 63:
     bonus = 35
 pontuacao_total = pontos_simples + pontos_avancada + bonus
 imprime_cartela(cartela)
-print("Pontuação total: {pontuacao_total}")
+print(f"Pontuação total: {pontuacao_total}")
