@@ -20,16 +20,16 @@ while rodada < 12:
     while terminou_rodada == 0:
         print(f"Dados rolados: {dados_rolados}")
         print(f"Dados guardados: {dados_guardados}")
-        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para fazer jogada:")
+        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
         opcao = input()
         if opcao == '1':
-            print("Qual o índice do dado que quer guardar?: ")
+            print("Digite o índice do dado a ser guardado (0 a 4): ")
             indice = int(input())
             resultado = guardar_dado(dados_rolados, dados_guardados, indice)
             dados_rolados = resultado[0]
             dados_guardados = resultado[1]
         elif opcao == '2':
-            print("Qual o índice do dado que quer remover?: ")
+            print("Digite o índice do dado a ser removido (0 a 4): ")
             indice = int(input())
             resultado = remover_dado(dados_rolados, dados_guardados, indice)
             dados_rolados = resultado[0]
@@ -43,7 +43,7 @@ while rodada < 12:
         elif opcao == '4':
             imprime_cartela(cartela)
         elif opcao == '0':
-            print("Digite a combinação: ")
+            print("Digite a combinação desejada: ")
             categoria = input()
             if categoria in ['1', '2', '3', '4', '5', '6']:
                 if cartela['regra_simples'][int(categoria)] != -1:
